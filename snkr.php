@@ -51,13 +51,16 @@ include 'koneksi.php' ?>
                                             <option value="">- pilih aplikasi tujuan -</option>
                                             <option value="bendahara">Aplikasi Bendahara</option>
                                             <option value="dekos">Aplikasi Dekosan</option>
+                                            <option value="sentral">Aplikasi Simkupaduka</option>
+                                            <option value="psb22">Aplikasi PSB</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Data yang di sinkron</label>
                                         <select name="data" id="" class="form-control" required>
                                             <option value="">- pilih data -</option>
-                                            <option value="santri">Data Santri</option>
+                                            <option value="tb_santri">Data Santri</option>
+                                            <option value="status">Data Status</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
