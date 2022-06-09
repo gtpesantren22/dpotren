@@ -97,7 +97,7 @@ if (isset($_POST['daftar'])) {
             </script>
             ";
     } else {
-        $ss = mysqli_query($conn, "INSERT INTO user VALUES ('', '$nama', '$user', '$passOk', 'T') ");
+        $ss = mysqli_query($conn, "INSERT INTO user VALUES ('', '$nama', '$user', '$passOk', 'admin', 'T') ");
         if ($ss) {
             echo "
             <script>
