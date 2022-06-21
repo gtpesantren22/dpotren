@@ -54,7 +54,7 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>NIS</label>
+                                                <label>NIS *</label>
                                                 <input type="text" name="nis" class="form-control" placeholder="Email" readonly value="<?= $nis; ?>">
                                             </div>
                                             <div class="form-group col-md-6">
@@ -64,12 +64,12 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>NIK</label>
+                                                <label>NIK *</label>
                                                 <input type="text" name="nik" class="form-control" placeholder="NIK berdasarkan KK" required value="<?= $r['nik']; ?>">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>No. KK</label>
-                                                <input type="text" name="no_kk" class="form-control" placeholder="Nomor KK" require value="<?= $r['no_kk']; ?>">
+                                                <label>No. KK *</label>
+                                                <input type="text" name="no_kk" class="form-control" placeholder="Nomor KK" required value="<?= $r['no_kk']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -77,17 +77,17 @@ $thn_w = $splitw[2];
                                             <input type="email" name="email" class="form-control" placeholder="" value="<?= $r['email']; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Nama Lengkap</label>
+                                            <label>Nama Lengkap *</label>
                                             <input type="text" name="nama" class="form-control" placeholder="" required value="<?= $r['nama']; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Tempat Lahir</label>
+                                            <label>Tempat Lahir *</label>
                                             <input type="text" name="tempat" class="form-control" placeholder="" required value="<?= $r['tempat']; ?>">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label>Tanggal Lahir</label>
-                                                <select name="tgl" id="" class="form-control">
+                                                <label>Tanggal Lahir *</label>
+                                                <select name="tgl" id="" class="form-control" required>
                                                     <option value=""> -Tanggal- </option>
                                                     <?php
                                                     for ($tanggal = 1; $tanggal <= 31; $tanggal++) {
@@ -104,7 +104,7 @@ $thn_w = $splitw[2];
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Bulan Lahir</label>
-                                                <select name="bulan" id="" class="form-control">
+                                                <select name="bulan" id="" class="form-control" required>
                                                     <option value=""> -Bulan- </option>
                                                     <?php
                                                     for ($bulan = 1; $bulan <= 12; $bulan++) {
@@ -119,7 +119,7 @@ $thn_w = $splitw[2];
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Tahun Lahir</label>
-                                                <select name="tahun" id="" class="form-control">
+                                                <select name="tahun" id="" class="form-control" required>
                                                     <option value=""> -Tahun- </option>
                                                     <?php
                                                     $now = date("Y");
@@ -135,19 +135,19 @@ $thn_w = $splitw[2];
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>Jenis Kelamin</label><br>
+                                            <label>Jenis Kelamin *</label><br>
                                             <label class="radio-inline mr-3">
-                                                <input type="radio" name="jkl" value="Laki-laki" <?= $r['jkl'] == 'Laki-laki' ? 'checked' : ''; ?>> Laki-laki</label>
+                                                <input type="radio" name="jkl" value="Laki-laki" <?= $r['jkl'] == 'Laki-laki' ? 'checked' : ''; ?> required> Laki-laki</label>
                                             <label class="radio-inline mr-3">
-                                                <input type="radio" name="jkl" value="Perempuan" <?= $r['jkl'] == 'Perempuan' ? 'checked' : ''; ?>> Perempuan</label>
+                                                <input type="radio" name="jkl" value="Perempuan" <?= $r['jkl'] == 'Perempuan' ? 'checked' : ''; ?> required> Perempuan</label>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>Anak ke</label>
+                                                <label>Anak ke *</label>
                                                 <input type="number" name="anak_ke" class="form-control" placeholder="" required value="<?= $r['anak_ke']; ?>">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Jumlah Saudara</label>
+                                                <label>Jumlah Saudara *</label>
                                                 <input type="number" name="jml_sdr" class="form-control" placeholder="" required value="<?= $r['jml_sdr']; ?>">
                                             </div>
                                         </div>
@@ -155,17 +155,17 @@ $thn_w = $splitw[2];
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Jln/Dusun</label>
+                                            <label>Jln/Dusun *</label>
                                             <textarea name="jln" rows="3" class="form-control h-150px" required><?= $r['jln']; ?></textarea>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label>RT</label>
-                                                <input type="text" name="rt" class="form-control" placeholder="RT" value="<?= $r['rt']; ?>">
+                                                <label>RT *</label>
+                                                <input type="text" name="rt" class="form-control" placeholder="RT" value="<?= $r['rt']; ?>" required>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label>RW</label>
-                                                <input type="text" name="rw" class="form-control" placeholder="RW" value="<?= $r['rw']; ?>">
+                                                <label>RW *</label>
+                                                <input type="text" name="rw" class="form-control" placeholder="RW" value="<?= $r['rw']; ?>" required>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Kode Pos</label>
@@ -174,25 +174,25 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>Provinsi <b><i>(<?= $r['prov']; ?>)</i></b></label>
+                                                <label>Provinsi *<b><i>(<?= $r['prov']; ?>)</i></b></label>
                                                 <select name="prop" id="provinsi" class="form-control " required>
                                                     <option value="">Pilih Provinsi</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Kabupaten/Kota <b><i>(<?= $r['kab']; ?>)</i></b></label>
+                                                <label>Kabupaten/Kota *<b><i>(<?= $r['kab']; ?>)</i></b></label>
                                                 <select name="kota" id="kabupaten" class="form-control " required>
                                                     <option value=""></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Kecamatan <b><i>(<?= $r['kec']; ?>)</i></b></label>
+                                                <label>Kecamatan *<b><i>(<?= $r['kec']; ?>)</i></b></label>
                                                 <select name="kec" id="kecamatan" class="form-control " required>
                                                     <option value=""></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Desa/Kelurahan <b><i>(<?= $r['desa']; ?>)</i></b></label>
+                                                <label>Desa/Kelurahan *<b><i>(<?= $r['desa']; ?>)</i></b></label>
                                                 <select name="kel" id="kelurahan" class="form-control " required>
                                                     <option value=""></option>
                                                 </select>
@@ -200,7 +200,7 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3">
-                                                <label>Formal</label>
+                                                <label>Formal *</label>
                                                 <select name="t_formal" id="t_formal" class="form-control" required>
                                                     <option value="">Pilih Lembaga</option>
                                                     <?php
@@ -213,7 +213,7 @@ $thn_w = $splitw[2];
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label>Kelas</label>
+                                                <label>Kelas *</label>
                                                 <select name="k_formal" id="" class="form-control" required>
                                                     <option value="">Pilih Kelas</option>
                                                     <?php
@@ -226,7 +226,7 @@ $thn_w = $splitw[2];
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label>Rombel</label>
+                                                <label>Rombel *</label>
                                                 <select name="r_formal" id="" class="form-control" required>
                                                     <option value="">-pilih-</option>
                                                     <?php
@@ -239,7 +239,7 @@ $thn_w = $splitw[2];
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label>Jurusan</label>
+                                                <label>Jurusan *</label>
                                                 <select name="jurusan" id="jurusan" class="form-control" required>
                                                     <option value="">Pilih </option>
                                                     <?php
@@ -254,7 +254,7 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>Kelas Madin</label>
+                                                <label>Kelas Madin *</label>
                                                 <select name="k_madin" id="provinsi" class="form-control" required>
                                                     <option value="">Pilih kelas</option>
                                                     <?php
@@ -267,7 +267,7 @@ $thn_w = $splitw[2];
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Rombel</label>
+                                                <label>Rombel *</label>
                                                 <select name="r_madin" id="kabupaten" class="form-control" required>
                                                     <option value="">Pilih rombel</option>
                                                     <?php
@@ -282,7 +282,7 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label>Komplek</label>
+                                                <label>Komplek *</label>
                                                 <select name="komplek" id="komplek" class="form-control" required>
                                                     <option value="">Pilih komplek</option>
                                                     <?php
@@ -296,7 +296,7 @@ $thn_w = $splitw[2];
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Kamar</label>
+                                                <label>Kamar *</label>
                                                 <select name="kamar" id="komplek" class="form-control" required>
                                                     <option value="">Pilih komplek</option>
                                                     <?php
@@ -328,15 +328,15 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>NIK</label>
-                                            <input type="text" name="nik_a" class="form-control" placeholder="" required value="<?= $r['nik_a']; ?>">
+                                            <input type="text" name="nik_a" class="form-control" placeholder="" value="<?= $r['nik_a']; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Nama Lengkap</label>
+                                            <label>Nama Lengkap *</label>
                                             <input type="text" name="bapak" class="form-control" placeholder="" required value="<?= $r['bapak']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Pendidikan</label>
-                                            <select name="pend_a" id="" class="form-control" required>
+                                            <select name="pend_a" id="" class="form-control">
                                                 <option value="">Pilih Pendidikan</option>
                                                 <?php
                                                 $sq = mysqli_query($conn, "SELECT * FROM pdd");
@@ -357,7 +357,7 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" name="tempat_a" class="form-control" placeholder="" required value="<?= $r['tempat_a']; ?>">
+                                            <input type="text" name="tempat_a" class="form-control" placeholder="" value="<?= $r['tempat_a']; ?>">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
@@ -411,7 +411,7 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-group">
                                             <label>Pekerjaan</label>
-                                            <select name="pkj_a" id="" class="form-control" required>
+                                            <select name="pkj_a" id="" class="form-control">
                                                 <option value="">Pilih Pekerjaan</option>
                                                 <?php
                                                 $sq = mysqli_query($conn, "SELECT * FROM pkj");
@@ -448,15 +448,15 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>NIK</label>
-                                            <input type="text" name="nik_i" class="form-control" placeholder="" required value="<?= $r['nik_i']; ?>">
+                                            <input type="text" name="nik_i" class="form-control" placeholder="" value="<?= $r['nik_i']; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Nama Lengkap</label>
+                                            <label>Nama Lengkap *</label>
                                             <input type="text" name="ibu" class="form-control" placeholder="" required value="<?= $r['ibu']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Pendidikan</label>
-                                            <select name="pend_i" id="" class="form-control" required>
+                                            <select name="pend_i" id="" class="form-control">
                                                 <option value="">Pilih Pendidikan</option>
                                                 <?php
                                                 $sq = mysqli_query($conn, "SELECT * FROM pdd");
@@ -477,7 +477,7 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" name="tempat_i" class="form-control" placeholder="" required value="<?= $r['tempat_i']; ?>">
+                                            <input type="text" name="tempat_i" class="form-control" placeholder="" value="<?= $r['tempat_i']; ?>">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
@@ -531,7 +531,7 @@ $thn_w = $splitw[2];
                                         </div>
                                         <div class="form-group">
                                             <label>Pekerjaan</label>
-                                            <select name="pkj_i" id="" class="form-control" required>
+                                            <select name="pkj_i" id="" class="form-control">
                                                 <option value="">Pilih Pekerjaan</option>
                                                 <?php
                                                 $sq = mysqli_query($conn, "SELECT * FROM pkj");
@@ -547,7 +547,7 @@ $thn_w = $splitw[2];
                                             <label class="radio-inline mr-3">
                                                 <input type="radio" name="status_i" value="hidup" <?= $r['status_i'] == 'hidup' ? 'checked' : ''; ?>> Masih Hidup</label>
                                             <label class="radio-inline mr-3">
-                                                <input type="radio" name="status_i" value="meninggal" <?= $r['status_i'] == 'meninggal' ? 'checked' : ''; ?>> Masih Meninggal</label>
+                                                <input type="radio" name="status_i" value="meninggal" <?= $r['status_i'] == 'meninggal' ? 'checked' : ''; ?>> Meninggal</label>
                                         </div>
                                     </div>
                                 </div>
@@ -566,15 +566,15 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>NIK</label>
-                                            <input type="text" name="nik_w" class="form-control" placeholder="" required value="<?= $r['nik_w']; ?>">
+                                            <input type="text" name="nik_w" class="form-control" placeholder="" value="<?= $r['nik_w']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Lengkap</label>
-                                            <input type="text" name="wali" class="form-control" placeholder="" required value="<?= $r['wali']; ?>">
+                                            <input type="text" name="wali" class="form-control" placeholder="" value="<?= $r['wali']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Pendidikan</label>
-                                            <select name="pend_w" id="" class="form-control" required>
+                                            <select name="pend_w" id="" class="form-control">
                                                 <option value="">Pilih Pendidikan</option>
                                                 <?php
                                                 $sq = mysqli_query($conn, "SELECT * FROM pdd");
@@ -591,7 +591,7 @@ $thn_w = $splitw[2];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" name="tempat_w" class="form-control" placeholder="" required value="<?= $r['tempat_w']; ?>">
+                                            <input type="text" name="tempat_w" class="form-control" placeholder="" value="<?= $r['tempat_w']; ?>">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
@@ -673,7 +673,7 @@ $thn_w = $splitw[2];
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>No. HP</label>
+                                            <label>No. HP *</label>
                                             <input type="text" name="hp" class="form-control" placeholder="" required value="<?= $r['hp']; ?>">
                                         </div>
                                         <div class="form-group">
@@ -707,7 +707,7 @@ $thn_w = $splitw[2];
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Status</label><br>
+                                            <label>Status *</label><br>
                                             <?php
                                             $qr = mysqli_query($conn, "SELECT * FROM `status` WHERE tahun = '2021/2022' AND jkl = '$jk' GROUP BY stts");
                                             foreach ($qr as $rs) : ?>
@@ -758,7 +758,7 @@ $thn_w = $splitw[2];
                                             <?php endforeach; ?>
                                         </div>
                                         <div class="form-group">
-                                            <label>Keterangan</label>
+                                            <label>Keterangan *</label>
                                             <select name="ket" id="" class="form-control" required>
                                                 <?php
                                                 $k = $r['ket'];
