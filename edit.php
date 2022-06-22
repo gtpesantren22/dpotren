@@ -175,25 +175,25 @@ $thn_w = $splitw[2];
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Provinsi *<b><i>(<?= $r['prov']; ?>)</i></b></label>
-                                                <select name="prop" id="provinsi" class="form-control " required>
+                                                <select name="prop" id="provinsi" class="form-control ">
                                                     <option value="">Pilih Provinsi</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Kabupaten/Kota *<b><i>(<?= $r['kab']; ?>)</i></b></label>
-                                                <select name="kota" id="kabupaten" class="form-control " required>
+                                                <select name="kota" id="kabupaten" class="form-control ">
                                                     <option value=""></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Kecamatan *<b><i>(<?= $r['kec']; ?>)</i></b></label>
-                                                <select name="kec" id="kecamatan" class="form-control " required>
+                                                <select name="kec" id="kecamatan" class="form-control ">
                                                     <option value=""></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Desa/Kelurahan *<b><i>(<?= $r['desa']; ?>)</i></b></label>
-                                                <select name="kel" id="kelurahan" class="form-control " required>
+                                                <select name="kel" id="kelurahan" class="form-control ">
                                                     <option value=""></option>
                                                 </select>
                                             </div>
@@ -220,7 +220,7 @@ $thn_w = $splitw[2];
                                                     $sq = mysqli_query($conn, "SELECT * FROM kelas ");
                                                     while ($kl = mysqli_fetch_assoc($sq)) {
                                                     ?>
-                                                        <option <?= $r['t_formal'] == $kl['nama'] ? 'selected' : ''; ?> value="<?= $kl['nama'] ?>"><?= $kl['nama'] ?>
+                                                        <option <?= $r['k_formal'] == $kl['nama'] ? 'selected' : ''; ?> value="<?= $kl['nama'] ?>"><?= $kl['nama'] ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
@@ -298,7 +298,7 @@ $thn_w = $splitw[2];
                                             <div class="form-group col-md-6">
                                                 <label>Kamar *</label>
                                                 <select name="kamar" id="komplek" class="form-control" required>
-                                                    <option value="">Pilih komplek</option>
+                                                    <option value="">Pilih Kamar</option>
                                                     <?php
                                                     $jk = $r['jkl'];
                                                     $sq = mysqli_query($conn, "SELECT * FROM kamar WHERE jkl = '$jk'");
@@ -709,7 +709,7 @@ $thn_w = $splitw[2];
                                         <div class="form-group">
                                             <label>Status *</label><br>
                                             <?php
-                                            $qr = mysqli_query($conn, "SELECT * FROM `status` WHERE tahun = '2021/2022' AND jkl = '$jk' GROUP BY stts");
+                                            $qr = mysqli_query($conn, "SELECT * FROM status WHERE tahun = '2022/2023'  GROUP BY stts");
                                             foreach ($qr as $rs) : ?>
                                                 <input type="radio" name="stts" id="" value="<?= $rs["stts"]; ?>" required <?php if ($rs["stts"] == $r["stts"]) {
                                                                                                                                 echo "checked";
@@ -898,8 +898,12 @@ if (isset($_POST['save'])) {
         $nm_foto = rand() . '.' . end($ext);
         move_uploaded_file($tmp, 'images/santri/' . $nm_foto);
     }
-    $sql = mysqli_query($conn, "UPDATE tb_santri SET nisn = '$nisn', nik = '$nik', no_kk = '$no_kk', email = '$email', nama = '$nama', tempat = '$tempat', tanggal = '$tanggal', jkl = '$jkl', jln = '$jln', rt = '$rt', rw = '$rw', kd_pos = '$kd_pos', prov = '$prop', kab = '$kab', kec = '$kec', desa = '$kel', k_formal = '$k_formal', t_formal = '$t_formal', r_formal = '$r_formal', jurusan = '$jurusan', k_madin = '$k_madin', r_madin = '$r_madin', komplek = '$komplek', kamar = '$kamar', anak_ke = '$anak_ke', jml_sdr = '$jml_sdr', bapak = '$bapak', nik_a = '$nik_a', tempat_a = '$tempat_a', tanggal_a = '$tanggal_a', pend_a = '$pend_a', pkj_a = '$pkj_a', status_a = '$status_a', foto_a = '$nm_foto_a', ibu = '$ibu', nik_i = '$nik_i', tempat_i = '$tempat_i', tanggal_i = '$tanggal_i', pend_i = '$pend_i', pkj_i = '$pkj_i', status_i = '$status_i', foto_i = '$nm_foto_i', wali = '$wali', nik_w = '$nik_w', tempat_w = '$tempat_w', tanggal_w = '$tanggal_w', pend_w = '$pend_w', pkj_w = '$pkj_w',  hp = '$hp', foto = '$nm_foto', t_kos = '$t_kos',  ket = '$ket', stts = '$stts' WHERE nis = '$nis' ");
 
+    if ($id_prov == '' && $id_kab == '' && $id_kec == '' && $id_kel == '') {
+        $sql = mysqli_query($conn, "UPDATE tb_santri SET nisn = '$nisn', nik = '$nik', no_kk = '$no_kk', email = '$email', nama = '$nama', tempat = '$tempat', tanggal = '$tanggal', jkl = '$jkl', jln = '$jln', rt = '$rt', rw = '$rw', kd_pos = '$kd_pos', k_formal = '$k_formal', t_formal = '$t_formal', r_formal = '$r_formal', jurusan = '$jurusan', k_madin = '$k_madin', r_madin = '$r_madin', komplek = '$komplek', kamar = '$kamar', anak_ke = '$anak_ke', jml_sdr = '$jml_sdr', bapak = '$bapak', nik_a = '$nik_a', tempat_a = '$tempat_a', tanggal_a = '$tanggal_a', pend_a = '$pend_a', pkj_a = '$pkj_a', status_a = '$status_a', foto_a = '$nm_foto_a', ibu = '$ibu', nik_i = '$nik_i', tempat_i = '$tempat_i', tanggal_i = '$tanggal_i', pend_i = '$pend_i', pkj_i = '$pkj_i', status_i = '$status_i', foto_i = '$nm_foto_i', wali = '$wali', nik_w = '$nik_w', tempat_w = '$tempat_w', tanggal_w = '$tanggal_w', pend_w = '$pend_w', pkj_w = '$pkj_w',  hp = '$hp', foto = '$nm_foto', t_kos = '$t_kos',  ket = '$ket', stts = '$stts' WHERE nis = '$nis' ");
+    } else {
+        $sql = mysqli_query($conn, "UPDATE tb_santri SET nisn = '$nisn', nik = '$nik', no_kk = '$no_kk', email = '$email', nama = '$nama', tempat = '$tempat', tanggal = '$tanggal', jkl = '$jkl', jln = '$jln', rt = '$rt', rw = '$rw', kd_pos = '$kd_pos', prov = '$prop', kab = '$kab', kec = '$kec', desa = '$kel', k_formal = '$k_formal', t_formal = '$t_formal', r_formal = '$r_formal', jurusan = '$jurusan', k_madin = '$k_madin', r_madin = '$r_madin', komplek = '$komplek', kamar = '$kamar', anak_ke = '$anak_ke', jml_sdr = '$jml_sdr', bapak = '$bapak', nik_a = '$nik_a', tempat_a = '$tempat_a', tanggal_a = '$tanggal_a', pend_a = '$pend_a', pkj_a = '$pkj_a', status_a = '$status_a', foto_a = '$nm_foto_a', ibu = '$ibu', nik_i = '$nik_i', tempat_i = '$tempat_i', tanggal_i = '$tanggal_i', pend_i = '$pend_i', pkj_i = '$pkj_i', status_i = '$status_i', foto_i = '$nm_foto_i', wali = '$wali', nik_w = '$nik_w', tempat_w = '$tempat_w', tanggal_w = '$tanggal_w', pend_w = '$pend_w', pkj_w = '$pkj_w',  hp = '$hp', foto = '$nm_foto', t_kos = '$t_kos',  ket = '$ket', stts = '$stts' WHERE nis = '$nis' ");
+    }
     if ($sql) {
 ?>
         <script>
