@@ -290,7 +290,7 @@ $thn_w = $splitw[2];
                                                     $sq = mysqli_query($conn, "SELECT komplek FROM kamar WHERE jkl = '$jk' GROUP BY komplek");
                                                     while ($kl = mysqli_fetch_assoc($sq)) {
                                                     ?>
-                                                        <option <?= $r['komplek'] != '' ? 'selected' : ''; ?> value="<?= $kl['komplek'] ?>"><?= $kl['komplek'] ?>
+                                                        <option <?= $r['komplek'] === $kl['komplek'] ? 'selected' : ''; ?> value="<?= $kl['komplek'] ?>"><?= $kl['komplek'] ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
@@ -304,7 +304,7 @@ $thn_w = $splitw[2];
                                                     $sq = mysqli_query($conn, "SELECT * FROM kamar WHERE jkl = '$jk'");
                                                     while ($kl = mysqli_fetch_assoc($sq)) {
                                                     ?>
-                                                        <option <?= $r['nama'] != '' ? 'selected' : ''; ?> value="<?= $kl['nama'] ?>"><?= $kl['nama'] ?>
+                                                        <option <?= $r['kamar'] === $kl['nama'] ? 'selected' : ''; ?> value="<?= $kl['nama'] ?>"><?= $kl['nama'] ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
